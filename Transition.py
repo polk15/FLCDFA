@@ -5,6 +5,6 @@ class Transition:
         self.to_states = to_states[:]
 
     def __str__(self):
-        return f"Transition: fromstate {self.from_state} symbol {self.symbol}  tostates {self.to_states}\n"
+        return f"\nTransition from {self.from_state} symbol {self.symbol} to {self.to_states}"
 
     __repr__ = __str__

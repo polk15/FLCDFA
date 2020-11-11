@@ -30,6 +30,20 @@ class FA:
         items = line.split(',')
         return Transition(items[0], items[1], items[2:])
 
+    def is_accepted(self, sequence):
+        state = self.__initial_state
+        for character in sequence:
+            transition_exists = False
+            for t in self.__transitions:
+                if t.from_state == state and t.symbol == character:
+                    transition_exists = True
+                    state = t.to_states[0]
+
+            if not transition_exists:
+                return False
+
+        return state in self.__final_states
+
     def read_from_file(self, file_name):
         file = open(file_name, "r")
         self.__states = self.parse_line(self.__states, file.readline().strip('\n'), "states")

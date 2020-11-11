@@ -7,5 +7,13 @@ if __name__ == '__main__':
 
     if fa.is_deterministic():
         print("the given FA is deterministic")
+        sequence = input("Give a sequence to be verified: ")
+
+        if fa.is_accepted(sequence):
+            print("The given sequence is accepted! ")
+        else:
+            print("The given sequence is not accepted :(")
+
     else:
         print("the given FA is nondeterministic")
+
